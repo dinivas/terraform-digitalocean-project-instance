@@ -29,3 +29,8 @@ Gemfile.lock
 
 # Local test-kitchen files.
 **/.kitchen/*
+
+provider.tf
+*.hcl
+
+examples/simple/last-plan
