@@ -29,8 +29,8 @@ variable "instance_count" {
   default     = "1"
 }
 variable "enable_logging_graylog" {
-  type        = string
-  default     = "0"
+  type    = string
+  default = "0"
 }
 
 variable "project_availability_zone" {
@@ -38,8 +38,8 @@ variable "project_availability_zone" {
   type        = string
 }
 
-variable "instance_vpc_id" {
-  description = "The VPC Id for the instance"
+variable "instance_network" {
+  description = "The VPC name for the instance"
   type        = string
 }
 
@@ -67,11 +67,15 @@ variable "generic_user_data_file_url" {
 }
 
 variable "execute_on_destroy_instance_script" {
-  type    = string
-  default = ""
+  type        = list(string)
+  description = "List of inline commands called before instance destruction"
+  default     = ["consul leave"]
 }
 
 variable "ssh_via_bastion_config" {
   description = "config map used to connect via bastion ssh"
   default     = {}
 }
+
+variable "host_private_key" {}
+variable "bastion_private_key" {}
